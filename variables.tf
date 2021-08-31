@@ -38,18 +38,21 @@ variable "description" {
 }
 
 variable "standard_analytics_workspace_id" {
-  type    = string
-  default = null
+  type        = string
+  default     = null
+  description = "If defined, the log analytics workspace id for standard logs."
 }
 
 variable "monitoring_workspace_id" {
-  type    = string
-  default = null
+  type        = string
+  default     = null
+  description = "If defined, the log analytics workspace id for monitoring logs."
 }
 
 variable "metrics_retention_days" {
-  type    = number
-  default = 30
+  type        = number
+  default     = 30
+  description = "Metrics retention days."
 }
 
 variable "caf_prefixes" {
