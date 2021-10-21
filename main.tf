@@ -5,7 +5,7 @@ locals {
   metrics_retention_days = var.metrics_retention_days
   enable_retention       = local.metrics_retention_days != null && local.metrics_retention_days > 0
 
-  enable_standard_metrics   = var.standard_analytics_workspace_id != null
+  enable_standard_metrics   = var.enable_standard_analytics
   enable_monitoring_metrics = var.monitoring_workspace_id != null
 
   logs    = ["PipelineRuns", "TriggerRuns", "ActivityRuns"]
@@ -38,8 +38,12 @@ resource "azurerm_data_factory" "factory" {
   resource_group_name = data.azurerm_resource_group.parent_group.name
   tags                = local.tags
 
-  identity {
-    type = "SystemAssigned"
+  dynamic "identity" {
+    for_each = ["mock_iterator"]
+    content {
+      type         = var.identity_type
+      identity_ids = var.identity_type == "UserAssigned" ? var.user_assigned_identity_ids : null
+    }
   }
 
   lifecycle {

@@ -40,7 +40,7 @@ variable "description" {
 variable "standard_analytics_workspace_id" {
   type        = string
   default     = null
-  description = "If defined, the log analytics workspace id for standard logs."
+  description = "If defined, the log analytics workspace id for standard logs. Mandatory if enable_standard_analytics is set to 'true'"
 }
 
 variable "monitoring_workspace_id" {
@@ -65,4 +65,22 @@ variable "name_separator" {
   type        = string
   description = "Name separator"
   default     = "-"
+}
+
+variable "enable_standard_analytics" {
+  type        = bool
+  default     = false
+  description = "Indicates if the log are sent to a specified log analytics workspace."
+}
+
+variable "identity_type" {
+  description = "Add an Identity (MSI) to the function app. Possible values are SystemAssigned or UserAssigned"
+  type        = string
+  default     = "SystemAssigned"
+}
+
+variable "user_assigned_identity_ids" {
+  description = "UserAssigned Identities ID to add to Function App. Mandatory if type is UserAssigned"
+  type        = list(string)
+  default     = null
 }
