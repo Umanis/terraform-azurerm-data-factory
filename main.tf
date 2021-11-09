@@ -47,6 +47,6 @@ resource "azurerm_data_factory" "factory" {
   }
 
   lifecycle {
-    ignore_changes = [vsts_configuration, github_configuration]
+    ignore_changes = [vsts_configuration, github_configuration, global_parameter]
   }
 }

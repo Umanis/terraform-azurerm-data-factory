@@ -69,8 +69,8 @@ module "umanis_data_factory" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.15.0 |
-| <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.5 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=2.62.0 |
+| <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.6 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=2.84.0 |
 
 ## Inputs
 
