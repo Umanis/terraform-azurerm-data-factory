@@ -68,9 +68,9 @@ module "umanis_data_factory" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.15.0 |
-| <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.6 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=2.84.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.10 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=2.90.0 |
 
 ## Inputs
 
@@ -83,6 +83,7 @@ module "umanis_data_factory" {
 | <a name="input_custom_name"></a> [custom\_name](#input\_custom\_name) | Specifies a custom name for the resource. | `string` | `""` | no |
 | <a name="input_custom_tags"></a> [custom\_tags](#input\_custom\_tags) | The custom tags to add on the resource. | `map(string)` | `{}` | no |
 | <a name="input_description"></a> [description](#input\_description) | The resource description. | `string` | `""` | no |
+| <a name="input_disabled_logs"></a> [disabled\_logs](#input\_disabled\_logs) | Disabled logs. Some datafactory logs are defined with 'enabled = false' by design ; this values specify then to stabilize terraform plan. | `list(string)` | <pre>[<br>  "AirflowDagProcessingLogs",<br>  "AirflowSchedulerLogs",<br>  "AirflowTaskLogs",<br>  "AirflowWebLogs",<br>  "AirflowWorkerLogs",<br>  "SSISIntegrationRuntimeLogs",<br>  "SSISPackageEventMessageContext",<br>  "SSISPackageEventMessages",<br>  "SSISPackageExecutableStatistics",<br>  "SSISPackageExecutionComponentPhases",<br>  "SSISPackageExecutionDataStatistics",<br>  "SandboxActivityRuns",<br>  "SandboxPipelineRuns"<br>]</pre> | no |
 | <a name="input_enable_standard_analytics"></a> [enable\_standard\_analytics](#input\_enable\_standard\_analytics) | Indicates if the log are sent to a specified log analytics workspace. | `bool` | `false` | no |
 | <a name="input_identity_type"></a> [identity\_type](#input\_identity\_type) | Add an Identity (MSI) to the function app. Possible values are SystemAssigned or UserAssigned | `string` | `"SystemAssigned"` | no |
 | <a name="input_metrics_retention_days"></a> [metrics\_retention\_days](#input\_metrics\_retention\_days) | Metrics retention days. | `number` | `30` | no |
